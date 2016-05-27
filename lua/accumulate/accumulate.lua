@@ -6,7 +6,7 @@
 
 return function(collection, operation)
   local result = {}
-  for i, element in ipairs(collection) do
+  for i in ipairs(collection) do
     table.insert(result, operation(collection[i]))
   end
   return result
