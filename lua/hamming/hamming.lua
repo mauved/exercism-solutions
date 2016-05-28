@@ -9,6 +9,11 @@ local hamming = {}
 function hamming.compute(strand1, strand2)
   local distance = 0
 
+  -- returns nil if input strings are of different lengths
+  if string.len(strand1) ~= string.len(strand2) then
+    return nil
+  end
+
   for i = 1, string.len(strand1) do
     if string.sub(strand1, i, i) ~= string.sub(strand2, i, i) then
       distance = distance + 1
