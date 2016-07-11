@@ -14,7 +14,6 @@ def word_count(phrase):
     clean_phrase = phrase.translate(punct_remove)
 
     word_list = clean_phrase.lower().split()
-
     word_list = [ word.strip() for word in word_list ]
 
     for word in word_list:
