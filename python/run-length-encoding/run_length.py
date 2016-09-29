@@ -3,9 +3,28 @@
 
 
 def encode(word):
-    #for character in encoded_word:
-        
-    return ''
+    encoded_word = ''
+    previous_character = word[0]
+    character_count = 0
+
+    for character in word:
+        if character == previous_character:
+            character_count += 1
+        else:
+            if character_count == 1:
+                encoded_word += previous_character
+            else:
+                encoded_word += str(character_count) + previous_character
+
+            previous_character = character
+            character_count = 1
+    
+    if character_count == 1:
+        encoded_word += previous_character
+    else:
+        encoded_word += str(character_count) + previous_character
+
+    return encoded_word
 
 def decode(encoded_word):
     decoded_word = ''
