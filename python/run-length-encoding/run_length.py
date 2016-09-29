@@ -1,6 +1,7 @@
 # Solution for run length
 # Written by Sofia Nieves
 
+<<<<<<< HEAD
 import string
 
 def encode(word):
@@ -29,11 +30,27 @@ def encode(word):
         encoded_word += previous_character
     else:
         encoded_word += str(character_count) + previous_character
+=======
+def encode(word):
+    encoded_word = ''
+    count = 0
+    previous_character = str(word[0])
+
+    for character in word:
+        if character == previous_character:
+            count += 1
+        else:
+            encoded_word += str(count) + str(previous_character)
+            previous_character = character
+            count = 1
+    encoded_word += str(count) + str(previous_character)
+>>>>>>> 3f60f72f507b30317f473e0921782a853c8bf7e5
 
     return encoded_word
 
 def decode(encoded_word):
     decoded_word = ''
+<<<<<<< HEAD
     count = ''
 
     # If the character's a number append it
@@ -55,6 +72,18 @@ def decode(encoded_word):
             continue
 
         count += character
+=======
+    count = 0
+
+    for character in encoded_word:
+        if count <= 0:
+            count = int(character)
+            continue
+
+        while count > 0:
+            decoded_word += character
+            count -= 1
+>>>>>>> 3f60f72f507b30317f473e0921782a853c8bf7e5
 
     return decoded_word
 
