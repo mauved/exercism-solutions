@@ -3,8 +3,6 @@
 # Completed by Sofia Nieves
 #
 
-import string
-
 def hey(what):
     if what.isupper():
         return 'Whoa, chill out!'
