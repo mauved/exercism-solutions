@@ -7,7 +7,7 @@ def sieve(limit):
     if limit < 2:
         return []
 
-    worklist = list(range(2, limit + 1))
+    worklist = range(2, limit + 1)
     primes = []
     notprimes = []
 
