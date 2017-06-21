@@ -1,7 +1,3 @@
-#
-# Skeleton file for the Python "Bob" exercise.
-# Completed by Sofia Nieves
-#
 
 def hey(what):
     if what.isupper():
