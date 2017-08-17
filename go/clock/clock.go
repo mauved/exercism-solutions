@@ -31,7 +31,7 @@ func (self Clock) Add(minutes int) Clock {
 func Roll(self Clock) Clock {
 	// roll over negative minutes
 	if self.minute < 0 {
-		self.hour += self.minute / 60 - 1
+		self.hour += self.minute/60 - 1
 		self.minute = 60 + (self.minute % 60)
 	}
 
