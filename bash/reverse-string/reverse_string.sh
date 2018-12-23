@@ -7,5 +7,5 @@ for ((i=${#1}-1;i>=0;i--));
 do
 	# Substring expansion used to extract characters in reverse order
 	# one character at a time
-	printf "${1:${i}:1}"
+	printf "%s" "${1:${i}:1}"
 done
