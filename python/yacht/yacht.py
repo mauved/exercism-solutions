@@ -88,4 +88,11 @@ def CHOICE(dice):
 
 
 def score(dice, category):
+    if len(dice) != 5:
+        raise ValueError("Yacht is played with five dice")
+
+    for roll in dice:
+        if roll > 6 or roll < 1:
+            raise ValueError("Yacht is played with standard six-sided dice")
+
     return category(dice)
