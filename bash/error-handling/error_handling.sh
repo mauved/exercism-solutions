@@ -6,7 +6,7 @@ if [ ${#@} -lt 1 ]; then
 fi
 
 if [ ${#@} -gt 1 ]; then
-	echo "Script takes one argument as greetee. Try quotes"
+	echo "Script takes one argument as greetee. Try quotes" >&2
 	exit 2
 fi
 
