@@ -1,10 +1,25 @@
 #!/usr/bin/env bash
 
-# Not going to bother computing the total since
-# it's a constant value
-readonly BOARDTOTAL=18446744073709551615
+# This function counts the number of grains
+# received in total up to a certain square
+grain_count () {
+	bin_total=$(
+		for ((i=0; i < ${1}; i++)); do
+			printf 1
+		done
+	)
+	echo "${bin_total}"
+}
+
+# Tried to not use bc but 2^64 is too large a number
+# for bash to handle on its own. Calculation assumes 64 squares.
+readonly BOARDTOTAL=$(bc << END
+2^64 - 1
+END
+)
+
 if [[ $1 == "total" ]]; then
-	printf %s "${BOARDTOTAL}"
+	printf %u "${BOARDTOTAL}"
 	exit 0
 fi
 
@@ -14,6 +29,7 @@ if [[ $1 -lt 1 || $1 -gt 64 ]]; then
 	exit 1
 fi
 
-# unsigned integer for handling later squares
+# unsigned integer with %u for handling later squares
 # such as 2^(64-1)
-printf %u "$((2**((${1}-1))))"
+# printf %u "$((2**(${1}-1)))"
+printf %u "$((1<<(${1}-1)))"
