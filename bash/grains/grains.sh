@@ -13,10 +13,7 @@ grain_count () {
 
 # Tried to not use bc but 2^64 is too large a number
 # for bash to handle on its own. Calculation assumes 64 squares.
-readonly BOARDTOTAL=$(bc << END
-2^64 - 1
-END
-)
+readonly BOARDTOTAL=$(bc <<< "2^64 - 1")
 
 if [[ $1 == "total" ]]; then
 	printf %u "${BOARDTOTAL}"
