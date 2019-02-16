@@ -3,9 +3,9 @@
 # Characters separated by whitespace and dashes
 # are separate words.
 IFS+="-"
-declare -a words=(${1})
+words="${1}"
 
-for word in "${words[@]}"; do
+for word in $words; do
 	acronym+="${word:0:1}"
 done
 
