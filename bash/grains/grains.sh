@@ -1,19 +1,6 @@
 #!/usr/bin/env bash
 
-# This function counts the number of grains
-# received in total up to a certain square
-grain_count () {
-	bin_total=$(
-		for ((i=0; i < ${1}; i++)); do
-			printf 1
-		done
-	)
-	echo "${bin_total}"
-}
-
-# Tried to not use bc but 2^64 is too large a number
-# for bash to handle on its own. Calculation assumes 64 squares.
-readonly BOARDTOTAL=$(bc <<< "2^64 - 1")
+readonly BOARDTOTAL=$(( 2**64 - 1 ))
 
 if [[ $1 == "total" ]]; then
 	printf %u "${BOARDTOTAL}"
@@ -28,5 +15,4 @@ fi
 
 # unsigned integer with %u for handling later squares
 # such as 2^(64-1)
-# printf %u "$((2**(${1}-1)))"
-printf %u "$((1<<(${1}-1)))"
+printf %u "$((2**(${1}-1)))"
